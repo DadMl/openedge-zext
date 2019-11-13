@@ -6,7 +6,12 @@ repeat while valid-handle(wh_v6_display):
     assign wh_v6_display = wh_v6_display:next-sibling.
 end.
 
-assign session:v6display         = yes
+DEFINE VARIABLE vsabl_v6Display AS CHARACTER NO-UNDO.
+vsabl_v6Display = OS-GETENV ( "VSABL_V6DISPLAY" ).
+
+IF vsabl_v6Display = "" THEN vsabl_v6Display = "NO".
+
+assign session:v6display         = LOGICAL(vsabl_v6Display)     /* by setup , avoid having screens broken */
        session:Immediate-Display = yes
        session:data-entry-return = yes.
 
@@ -30,4 +35,9 @@ IF LENGTH( vsabl_proPath ) > 0 THEN DO:
         END.
     END.
 END.
+
+DEFINE VARIABLE vsabl_preLauncherProg AS CHARACTER NO-UNDO.
+vsabl_preLauncherProg = OS-GETENV ( "VSABL_PRE_LAUNCHER_PROG" ).
+
+IF vsabl_preLauncherProg <> "" THEN RUN VALUE(vsabl_preLauncherProg).   /* This is the program that will init your own sessions */
 

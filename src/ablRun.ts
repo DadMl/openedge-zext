@@ -25,7 +25,7 @@ export function execRun(document: vscode.TextDocument, ablConfig: vscode.Workspa
 		// output information
 		outputChannel.appendLine('> OpenEdge executable = ' + cmd);
         outputChannel.appendLine('> Program name = ' + filename);
-        outputChannel.appendLine('> Workspace root = ' + wsPath);
+		outputChannel.appendLine('> Workspace root = ' + wsPath);
 
 		let oeConfig = getConfig();
 		let env = setupEnvironmentVariables(process.env, oeConfig, wsPath);
@@ -34,7 +34,7 @@ export function execRun(document: vscode.TextDocument, ablConfig: vscode.Workspa
 			configFile: oeConfig.configFile,
 			batchMode: false,
 			startupProcedure: path.join(__dirname, '../abl-src/run.p'),
-			param: filename,
+			param: filename + oeConfig.sessionParameter,
 			workspaceRoot: wsPath
 		});
 		cwd = oeConfig.workingDirectory ? oeConfig.workingDirectory.replace('${workspaceRoot}', wsPath).replace('${workspaceFolder}', wsPath) : cwd;

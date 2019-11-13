@@ -6,6 +6,9 @@
     ],
     "proPathMode": "append",
     "dlcPath": "c:\\dlc116",
+    "v6Display": "YES",
+    "preLauncherProg": "",
+    "sessionParameter": "",
     "parameterFiles": [
         "c:\\myEnv\\default.pf",
         "c:\\myEnv\\somethingElse.pf"

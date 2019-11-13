@@ -96,6 +96,26 @@ export function setupEnvironmentVariables(env: any, openEdgeConfig: OpenEdgeConf
         } else {
             env.VSABL_PROPATH_MODE = 'append';
         }
+
+        if (openEdgeConfig.preLauncherProg) {
+            env.VSABL_PRE_LAUNCHER_PROG = openEdgeConfig.preLauncherProg;
+        } else {
+            env.VSABL_PRE_LAUNCHER_PROG = '';
+        }
+
+        if (openEdgeConfig.v6Display) {
+            env.VSABL_V6DISPLAY = openEdgeConfig.v6Display;
+        } else {
+            env.VSABL_V6DISPLAY = 'NO';
+        }
+
+        if (openEdgeConfig.sessionParameter) {
+            env.VSABL_SESSION_PARAMETER = openEdgeConfig.sessionParameter;
+        } else {
+            env.VSABL_SESSION_PARAMETER = '';
+        }
+
+
     }
     env.VSABL_SRC = path.join(__dirname, '../../abl-src');
     env.VSABL_WORKSPACE = workspaceRoot;

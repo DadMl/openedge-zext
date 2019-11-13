@@ -95,7 +95,7 @@ function checkSyntax(workspace: vscode.WorkspaceFolder, filename: string, ablCon
 		configFile: oeConfig.configFile,
 		batchMode: true,
 		startupProcedure: path.join(__dirname, '../abl-src/check-syntax.p'),
-		param: filename,
+		param: filename + oeConfig.sessionParameter,
 		workspaceRoot: wsPath
 	});
 	cwd = oeConfig.workingDirectory ? oeConfig.workingDirectory.replace('${workspaceRoot}', wsPath).replace('${workspaceFolder}', wsPath) : cwd;

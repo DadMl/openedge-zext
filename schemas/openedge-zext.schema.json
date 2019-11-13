@@ -45,6 +45,21 @@
       "description": "DLC Path",
       "type": "string"
     },
+    "v6Display": {
+      "id": "/properties/v6Display",
+      "description": "V6 Display option (yes/No)",
+      "type": "string"
+    },
+    "preLauncherProg": {
+      "id": "/properties/preLauncherProg",
+      "description": "Specific user prog to be lanched after pre-launch.p",
+      "type": "string"
+    },
+    "sessionParameter": {
+      "id": "/properties/sessionParameter",
+      "description": "Additionnal Session Parameters",
+      "type": "string"
+    },
     "dbDictionary": {
       "id": "/properties/dbDictionary",
       "description": "Database list for auto-complete",
